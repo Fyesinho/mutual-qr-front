@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
 import Html5QrcodePlugin from "../../components/QrScan/QrSCan";
 
 const QrScanner = ({user}) => {
-    const onSuccess = (decodedText, decodedResult) => {
-        console.log(decodedText)
-        console.log(decodedResult)
+    const [rut, setRut] = useState('')
+    const onSuccess = (decodedText) => {
+        setRut(decodedText)
     }
 
     return (
@@ -18,6 +18,7 @@ const QrScanner = ({user}) => {
                 disableFlip={false}
                 qrCodeSuccessCallback={onSuccess}
             />
+            <div>{rut}</div>
             <Navigation />
         </div>
     );
