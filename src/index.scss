@@ -1,4 +1,16 @@
+$blue: #2F4858;
+$green: #9dbd2c;
+$gray: #505151;
+$turkey: #007367;
+
+//Gradiente
+$green2: #4EAD54;
+$green3: #009772;
+$turkey2: #007D7D;
+$turkey3: #006274;
+
 body {
+  background-color: #fafafa;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +22,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.logout {
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: white;
+  margin: 250px 20px 0;
 }
