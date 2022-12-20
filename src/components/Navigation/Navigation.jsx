@@ -18,11 +18,12 @@ const Navigation = () => {
                     <span>Inicio</span>
                 </Link>
             </div>
-            <input accept='image/*' id='icon-button-file' type='file' capture='environment'/>
-            <label className='icon-menu' htmlFor="icon-button-file">
-                <FontAwesomeIcon icon={faSdCard}/>
-                <span>QR</span>
-            </label>
+            <div className='icon-menu'>
+                <Link to={'/qr'}>
+                    <FontAwesomeIcon icon={faSdCard}/>
+                    <span>QR</span>
+                </Link>
+            </div>
         </div>
     );
 };
