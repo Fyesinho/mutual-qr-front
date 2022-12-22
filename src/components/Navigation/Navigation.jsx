@@ -7,10 +7,12 @@ import {Link} from "react-router-dom";
 const Navigation = () => {
     return (
         <div className='navigation'>
-            <div className='icon-menu'>
-                <FontAwesomeIcon icon={faClipboardList}/>
-                <span>Asignadas</span>
-            </div>
+            <a href='' target='_blank'>
+                <div className='icon-menu'>
+                    <FontAwesomeIcon icon={faClipboardList}/>
+                    <span>Reportes</span>
+                </div>
+            </a>
 
             <div className='icon-menu'>
                 <Link to={'/'}>

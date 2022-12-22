@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
 import Container from "../../components/Container/Container";
@@ -7,16 +7,19 @@ import GroupData from "../../components/GroupeData/GroupeData";
 import Data from "../../components/Data/Data";
 import ContainerData from "../../components/ContainerData/ContainerData";
 import Circle from "../../components/Circle/Circle";
+import UserContext from "../../context/user/User.context";
 
-const MyCourses = ({user}) => {
+const MyCourses = () => {
+    const {selectedUser} = useContext(UserContext);
+    const name = selectedUser[0] ? selectedUser[0]['Nombre Colaborador'] : ''
     return (
         <div>
-            <Header user={user}/>
+            <Header/>
             <Container>
                 <Title>
-                    Mis cursos
+                    Cursos de {name}
                 </Title>
-                {user && user.map((course, index) => {
+                {selectedUser && selectedUser.map((course, index) => {
                     let color;
                     switch (course['Boton']) {
                         case 'btn btn-success':
@@ -44,8 +47,6 @@ const MyCourses = ({user}) => {
                             <Data label='Fecha inicio' value={course['Fecha Inicio Actividad']}/>
                             <Data label='Fecha término' value={course['Fecha Termino Actividad']}/>
                             <Data label='Vigencia' value={course['Fecha Vigencia Actividad']}/>
-                            <Data label='Estado'
-                                  value={course['Boton'].includes('success') ? 'Completado' : 'No completado'}/>
                             <Data label='Certificado' value={
                                 <a target='_blank' rel='noreferrer' href={course['Link Actividad']}>Descargar</a>
                             }/>

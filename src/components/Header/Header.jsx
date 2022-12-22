@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Header.scss';
+import UserContext from "../../context/user/User.context";
 
-const Header = ({user}) => {
-    const firstData = user[0];
+const Header = () => {
+    const {loginUser} = useContext(UserContext);
+    const firstData = loginUser[0];
     const name = firstData ? firstData['Nombre Colaborador'] : ''
     return (
         <div className='header'>
