@@ -56,16 +56,18 @@ const Menu = () => {
                         <FontAwesomeIcon icon={faFileSignature}/>
                         <span style={{marginLeft: 10}}>Analítica</span>
                     </h2>
-                    <div className='menu'>
-                        <div className='tasks'>
-                            <div className='task' style={{width: '29%'}}>
-                                <a href='https://app.powerbi.com/view?r=eyJrIjoiZGU2NWMzMTgtMWViMi00ZmNhLWEyY2QtNmRmNGU5ZWZjNmMyIiwidCI6IjU3OTUyNTYyLWJhZTItNGI3OS04YWQ0LWUzNzVhM2RjZWQ5NyIsImMiOjR9' target='_blank'>
-                                    <div className='count'>
-                                        <span><FontAwesomeIcon icon={faChartPie}/></span>
-                                    </div>
-                                    <div className='title-menu'>Mis paneles</div>
-                                </a>
-                            </div>
+                    <div className='tasks'>
+                        <div className='task' id='my-panels'>
+                            <Link to='my-panels'>
+                                <div className='count'>
+                                    <span><FontAwesomeIcon icon={faChartPie}/></span>
+                                </div>
+                                <div className='title-menu'>Mis paneles</div>
+                            </Link>
+                        </div>
+                        <div className='task' style={{opacity: 0}}>
+                        </div>
+                        <div className='task' style={{opacity: 0}}>
                         </div>
                     </div>
                 </div>
