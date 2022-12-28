@@ -2,7 +2,7 @@ import React, {useReducer} from 'react';
 import UserReducer from './User.reducer';
 import UserContext from "./User.context";
 import {BASE_URL} from "../../const/const";
-import {GET_USER_LOGIN, GET_USER_QR, PUT_USER_ID} from "./User.types";
+import {GET_USER_LOGIN, GET_USER_QR, GET_USER_QR_INIT, PUT_USER_ID} from "./User.types";
 
 const UserState = (props) => {
     const initialState = {
@@ -38,6 +38,9 @@ const UserState = (props) => {
             method: 'GET',
             redirect: 'follow',
         };
+        dispatch({
+            type: GET_USER_QR_INIT,
+        });
         try {
             const endpoint = `${BASE_URL}/user/${id}`
             const response = await fetch(endpoint, requestOptions);

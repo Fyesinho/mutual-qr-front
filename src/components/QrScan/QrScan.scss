@@ -1,0 +1,15 @@
+@import '../../index';
+
+.button-access {
+  background-color: $green2;
+  color: white;
+  border-width: 0;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-size: 16px;
+  width: 180px;
+}
+
+.button-file {
+  opacity: 0;
+}

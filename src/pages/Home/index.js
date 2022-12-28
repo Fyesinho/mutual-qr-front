@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import Header from "../../components/Header/Header";
 import Menu from "./Menu/Menu";
-import Logout from "./Logout/Logout";
+// import Logout from "./Logout/Logout";
 import Navigation from "../../components/Navigation/Navigation";
 import Loading from "../../components/Loading/Loading";
 import UserContext from "../../context/user/User.context";
@@ -26,6 +26,7 @@ const Landing = () => {
         } else {
             selectedUser[0]['Rut Colaborador'] !== rut && getUserByQR(rut);
         }
+        // eslint-disable-next-line
     }, []);
     return (
         <>

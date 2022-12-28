@@ -3,14 +3,26 @@ import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
 import Html5QrcodePlugin from "../../components/QrScan/QrSCan";
 import UserContext from "../../context/user/User.context";
+import Fn from "../../const/utils";
+import {Link} from "react-router-dom";
+
 
 const QrScanner = () => {
     const {updateUserId} = useContext(UserContext);
     const [success, setSuccess] = useState(false);
+    const [failure, setFailure] = useState(false);
+    const [rut, setRut] = useState(false);
 
     const onSuccess = (decodedText) => {
-        setSuccess(true);
-        return updateUserId(decodedText)
+        setRut(decodedText)
+        if(Fn.validaRut(decodedText)) {
+            setSuccess(true);
+            setFailure(false);
+            return updateUserId(decodedText)
+        } else {
+            setSuccess(false);
+            setFailure(true);
+        }
     }
 
     return (
@@ -25,8 +37,14 @@ const QrScanner = () => {
             {
                 success &&
                 <div>
-                    <span>El rut fue escaneado exitosamente.</span>
-                    <button>Volver</button>
+                    <span>El rut {rut} fue escaneado exitosamente.</span>
+                    <Link to='/'>Volver</Link>
+                </div>
+            }
+            {
+                failure &&
+                <div>
+                    <span>El texto escaneado "{rut}" no es un Rut.</span>
                 </div>
             }
             <Navigation/>

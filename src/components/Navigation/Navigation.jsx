@@ -1,18 +1,18 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 import './Navigation.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faClipboardList, faHouse, faSdCard} from "@fortawesome/free-solid-svg-icons";
+import {faHouse, faSdCard, faChevronLeft} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
 
 const Navigation = () => {
+    const navigate = useNavigate();
     return (
         <div className='navigation'>
-            <a href='' target='_blank'>
-                <div className='icon-menu'>
-                    <FontAwesomeIcon icon={faClipboardList}/>
-                    <span>Reportes</span>
-                </div>
-            </a>
+            <div className='icon-menu' onClick={() => navigate(-1)}>
+                <FontAwesomeIcon icon={faChevronLeft}/>
+                <span>Volver</span>
+            </div>
 
             <div className='icon-menu'>
                 <Link to={'/'}>

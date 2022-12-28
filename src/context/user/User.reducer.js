@@ -1,6 +1,6 @@
-import {GET_USER_LOGIN, GET_USER_QR, PUT_USER_ID} from "./User.types";
+import {GET_USER_LOGIN, GET_USER_QR, GET_USER_QR_INIT, PUT_USER_ID} from "./User.types";
 
-export default (state, action) => {
+const reducer = (state, action) => {
     const {payload, type} = action;
 
     switch (type) {
@@ -16,8 +16,12 @@ export default (state, action) => {
                 selectedUser: payload,
                 loadingSelectedUser: false,
             }
+        case GET_USER_QR_INIT:
+            return {
+                ...state,
+                loadingSelectedUser: true,
+            }
         case PUT_USER_ID:
-            debugger;
             return {
                 ...state,
                 selectedUserId: payload,
@@ -27,3 +31,5 @@ export default (state, action) => {
 
     }
 }
+
+export default reducer;
