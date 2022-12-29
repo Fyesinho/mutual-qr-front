@@ -23,7 +23,6 @@ const Login = () => {
             if (response !== 200) {
                 setFailed(true)
             } else {
-                localStorage.setItem("isLogin", 'true');
                 return navigate('/home')
             }
         } catch (e) {

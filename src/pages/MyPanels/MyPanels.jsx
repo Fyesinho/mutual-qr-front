@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
+import withAuth from "../../hooks/withAuth";
 
 const MyPanels = () => {
     return (
@@ -14,4 +15,4 @@ const MyPanels = () => {
     );
 };
 
-export default MyPanels;
+export default withAuth(MyPanels);

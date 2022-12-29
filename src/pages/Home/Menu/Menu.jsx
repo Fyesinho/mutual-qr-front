@@ -26,7 +26,7 @@ const Menu = () => {
                     </h2>
                     <div className='tasks'>
                         <div className='task'>
-                            <Link to='personal-data'>
+                            <Link to='/personal-data'>
                                 <div className='count'>
                                     <span><FontAwesomeIcon icon={faAddressBook}/></span>
                                 </div>
@@ -34,7 +34,7 @@ const Menu = () => {
                             </Link>
                         </div>
                         <div className='task'>
-                            <Link to='my-courses'>
+                            <Link to='/my-courses'>
                                 <div className='count'>
                                     <span><FontAwesomeIcon icon={faGraduationCap}/></span>
                                     <span>{selectedUser.length}</span>

@@ -15,7 +15,7 @@ const Navigation = () => {
             </div>
 
             <div className='icon-menu'>
-                <Link to={'/'}>
+                <Link to={'/home'}>
                     <FontAwesomeIcon icon={faHouse}/>
                     <span>Inicio</span>
                 </Link>

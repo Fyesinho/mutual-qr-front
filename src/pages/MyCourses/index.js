@@ -8,6 +8,7 @@ import Data from "../../components/Data/Data";
 import ContainerData from "../../components/ContainerData/ContainerData";
 import Circle from "../../components/Circle/Circle";
 import UserContext from "../../context/user/User.context";
+import withAuth from "../../hooks/withAuth";
 
 const MyCourses = () => {
     const {selectedUser} = useContext(UserContext);
@@ -59,4 +60,4 @@ const MyCourses = () => {
     );
 };
 
-export default MyCourses;
+export default withAuth(MyCourses);

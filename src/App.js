@@ -13,6 +13,11 @@ function App() {
     return (
         <div className='App'>
             <Routes>
+                <Route path={'/'} element={
+                    <UserState>
+                        <Login/>
+                    </UserState>
+                }/>
                 <Route path={'/home'} element={
                     <UserState>
                         <Landing/>
@@ -36,11 +41,6 @@ function App() {
                 <Route path={'/my-panels'} element={
                     <UserState>
                         <MyPanels/>
-                    </UserState>
-                }/>
-                <Route path={'/'} element={
-                    <UserState>
-                        <Login/>
                     </UserState>
                 }/>
             </Routes>

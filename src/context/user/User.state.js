@@ -26,6 +26,7 @@ const UserState = (props) => {
             const endpoint = `${BASE_URL}/login`
             const response = await axios.post(endpoint, requestOptions);
             const result = await response;
+            localStorage.setItem("user", JSON.stringify(result.data[0]));
             dispatch({
                 type: GET_USER_LOGIN,
                 payload: result.data

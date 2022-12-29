@@ -6,18 +6,16 @@ import logo from '../../media/img/thumbnail_LOGO-MAS-BORDE-BLANCO.png'
 const Header = ({home}) => {
     const {loginUser} = useContext(UserContext);
     const firstData = loginUser[0];
-    const name = firstData ? firstData['Nombre Usuario'] : ''
-    return (
-        home ?
-            <div className='header'>
-                <img src={logo} alt='logo-mutual' />
-            </div>
-            :
-            <div className='header'>
-                <h1>Bienvenido</h1>
-                <h2>{name}</h2>
-            </div>
-    );
+    if (home) {
+        return <div className='header'>
+            <img src={logo} alt='logo-mutual'/>
+        </div>
+    }
+    const name = firstData ? firstData['Nombre Usuario'] : JSON.parse(localStorage.getItem('user'))['Nombre Usuario']
+    return <div className='header'>
+        <h1>Bienvenido</h1>
+        <h2>{name}</h2>
+    </div>;
 };
 
 export default Header;

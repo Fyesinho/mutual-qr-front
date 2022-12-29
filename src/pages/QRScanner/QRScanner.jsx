@@ -5,9 +5,11 @@ import Html5QrcodePlugin from "../../components/QrScan/QrSCan";
 import UserContext from "../../context/user/User.context";
 import Fn from "../../const/utils";
 import {Link} from "react-router-dom";
-
+import {useNavigate} from "react-router-dom";
+import withAuth from "../../hooks/withAuth";
 
 const QrScanner = () => {
+    const navigate = useNavigate();
     const {updateUserId} = useContext(UserContext);
     const [success, setSuccess] = useState(false);
     const [failure, setFailure] = useState(false);
@@ -18,7 +20,8 @@ const QrScanner = () => {
         if(Fn.validaRut(decodedText)) {
             setSuccess(true);
             setFailure(false);
-            return updateUserId(decodedText)
+            navigate('/home');
+            return updateUserId(decodedText);
         } else {
             setSuccess(false);
             setFailure(true);
@@ -38,7 +41,7 @@ const QrScanner = () => {
                 success &&
                 <div>
                     <span>El rut {rut} fue escaneado exitosamente.</span>
-                    <Link to='/'>Volver</Link>
+                    <Link to='/home'>Volver</Link>
                 </div>
             }
             {
@@ -52,4 +55,4 @@ const QrScanner = () => {
     );
 };
 
-export default QrScanner;
+export default withAuth(QrScanner);

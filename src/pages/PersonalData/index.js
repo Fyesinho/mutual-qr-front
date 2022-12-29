@@ -5,6 +5,7 @@ import Title from "../../components/Title/Title";
 import Container from "../../components/Container/Container";
 import Data from "../../components/Data/Data";
 import UserContext from "../../context/user/User.context";
+import withAuth from "../../hooks/withAuth";
 
 const PersonalData = () => {
     const {selectedUser} = useContext(UserContext);
@@ -28,4 +29,4 @@ const PersonalData = () => {
     );
 };
 
-export default PersonalData;
+export default withAuth(PersonalData);

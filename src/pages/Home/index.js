@@ -5,19 +5,21 @@ import Menu from "./Menu/Menu";
 import Navigation from "../../components/Navigation/Navigation";
 import Loading from "../../components/Loading/Loading";
 import UserContext from "../../context/user/User.context";
+import withAuth from "../../hooks/withAuth";
 
 const Landing = () => {
 
     const {
-        loadingLoginUser,
         getUserByQR,
         loadingSelectedUser,
         selectedUserId,
         selectedUser,
     } = useContext(UserContext);
 
+    const rutLocal = JSON.parse(localStorage.getItem('user')).rut
+
     useEffect(() => {
-        const rut = selectedUserId === '' ? '18138055-1' : selectedUserId;
+        const rut = selectedUserId === '' ? rutLocal : selectedUserId;
         if (selectedUser.length === 0) {
             getUserByQR(rut)
         } else {
@@ -27,7 +29,7 @@ const Landing = () => {
     }, []);
     return (
         <>
-            {(loadingLoginUser || loadingSelectedUser) && <Loading/>}
+            {(loadingSelectedUser) && <Loading/>}
             <Header/>
             <Menu/>
             <Navigation/>
@@ -35,4 +37,4 @@ const Landing = () => {
     );
 };
 
-export default Landing;
+export default withAuth(Landing);
