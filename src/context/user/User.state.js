@@ -28,7 +28,7 @@ const UserState = (props) => {
             const result = await response;
             dispatch({
                 type: GET_USER_LOGIN,
-                payload: result
+                payload: result.data
             });
             return response.status;
         } catch (e) {

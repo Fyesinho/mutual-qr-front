@@ -6,7 +6,7 @@ import logo from '../../media/img/thumbnail_LOGO-MAS-BORDE-BLANCO.png'
 const Header = ({home}) => {
     const {loginUser} = useContext(UserContext);
     const firstData = loginUser[0];
-    const name = firstData ? firstData['Nombre Colaborador'] : ''
+    const name = firstData ? firstData['Nombre Usuario'] : ''
     return (
         home ?
             <div className='header'>

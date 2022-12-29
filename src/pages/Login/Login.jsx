@@ -5,9 +5,10 @@ import Input from "../../components/Input/Input";
 import './Login.scss';
 import Button from "../../components/Button/Button";
 import UserContext from "../../context/user/User.context";
-import {Navigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
     const {
         getUserByLogin,
     } = useContext(UserContext);
@@ -19,10 +20,11 @@ const Login = () => {
         const password = event.target.password.value;
         try {
             const response = await getUserByLogin(rut, password)
-            if (response === 200) {
+            if (response !== 200) {
                 setFailed(true)
             } else {
-                return <Navigate to='/home'/>
+                localStorage.setItem("isLogin", 'true');
+                return navigate('/home')
             }
         } catch (e) {
             setFailed(true)
