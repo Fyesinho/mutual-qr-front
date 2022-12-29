@@ -1,4 +1,5 @@
 import React, {useReducer} from 'react';
+import axios from 'axios';
 import UserReducer from './User.reducer';
 import UserContext from "./User.context";
 import {BASE_URL} from "../../const/const";
@@ -19,13 +20,13 @@ const UserState = (props) => {
         console.log(id);
         console.log(password);
         const requestOptions = {
-            method: 'POST',
-            body: JSON.stringify({ id: id, password })
+            id, password,
         };
         try {
             const endpoint = `${BASE_URL}/login`
-            const response = await fetch(endpoint, requestOptions);
-            const result = await response.json();
+            const response = await axios.post(endpoint, requestOptions);
+            const result = await response;
+            console.log(result);
             dispatch({
                 type: GET_USER_LOGIN,
                 payload: result
