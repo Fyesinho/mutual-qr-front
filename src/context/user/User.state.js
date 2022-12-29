@@ -26,11 +26,11 @@ const UserState = (props) => {
             const endpoint = `${BASE_URL}/login`
             const response = await axios.post(endpoint, requestOptions);
             const result = await response;
-            console.log(result);
             dispatch({
                 type: GET_USER_LOGIN,
                 payload: result
             });
+            return response.status;
         } catch (e) {
             console.log(e)
         }

@@ -19,10 +19,12 @@ const Login = () => {
         const password = event.target.password.value;
         try {
             const response = await getUserByLogin(rut, password)
-            console.log(response)
-            return <Navigate to='/home' />
+            if (response === 200) {
+                setFailed(true)
+            } else {
+                return <Navigate to='/home'/>
+            }
         } catch (e) {
-            console.log('hjfiewf')
             setFailed(true)
         }
     }
