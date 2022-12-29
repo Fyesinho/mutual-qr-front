@@ -1,0 +1,12 @@
+@import './src/index';
+
+.button-success {
+  width: 100%;
+  padding: 15px 10px;
+  background-color: $green;
+  color: white;
+  border: unset;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+}

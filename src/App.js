@@ -7,12 +7,13 @@ import MyCourses from "./pages/MyCourses";
 import QrScanner from "./pages/QRScanner/QRScanner";
 import UserState from "./context/user/User.state";
 import MyPanels from "./pages/MyPanels/MyPanels";
+import Login from "./pages/Login/Login";
 
 function App() {
     return (
         <div className='App'>
             <Routes>
-                <Route path={'/'} element={
+                <Route path={'/home'} element={
                     <UserState>
                         <Landing/>
                     </UserState>
@@ -35,6 +36,11 @@ function App() {
                 <Route path={'/my-panels'} element={
                     <UserState>
                         <MyPanels/>
+                    </UserState>
+                }/>
+                <Route path={'/'} element={
+                    <UserState>
+                        <Login/>
                     </UserState>
                 }/>
             </Routes>

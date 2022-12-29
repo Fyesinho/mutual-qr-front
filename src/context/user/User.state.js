@@ -15,13 +15,15 @@ const UserState = (props) => {
 
     const [state, dispatch] = useReducer(UserReducer, initialState)
 
-    const getUserByLogin = async (id) => {
+    const getUserByLogin = async (id, password) => {
+        console.log(id);
+        console.log(password);
         const requestOptions = {
-            method: 'GET',
-            redirect: 'follow',
+            method: 'POST',
+            body: JSON.stringify({ id: id, password })
         };
         try {
-            const endpoint = `${BASE_URL}/user/${id}`
+            const endpoint = `${BASE_URL}/login`
             const response = await fetch(endpoint, requestOptions);
             const result = await response.json();
             dispatch({
