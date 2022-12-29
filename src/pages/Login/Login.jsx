@@ -18,9 +18,11 @@ const Login = () => {
         const rut = event.target.rut.value;
         const password = event.target.password.value;
         try {
-            await getUserByLogin(rut, password)
+            const response = await getUserByLogin(rut, password)
+            console.log(response)
             return <Navigate to='/home' />
         } catch (e) {
+            console.log('hjfiewf')
             setFailed(true)
         }
     }
