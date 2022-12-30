@@ -58,7 +58,7 @@ const Menu = () => {
                     </h2>
                     <div className='tasks'>
                         <div className='task' id='my-panels'>
-                            <Link to='my-panels'>
+                            <Link to='/my-panels'>
                                 <div className='count'>
                                     <span><FontAwesomeIcon icon={faChartPie}/></span>
                                 </div>
