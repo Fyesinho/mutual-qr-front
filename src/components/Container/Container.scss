@@ -1,4 +1,10 @@
+@import "../../index.scss";
+
 .container {
   padding: 10px;
   margin-bottom: 50px;
+  @media screen and (min-width: $desktop) {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 }
