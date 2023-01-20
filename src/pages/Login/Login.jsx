@@ -22,11 +22,13 @@ const Login = () => {
             const response = await getUserByLogin(rut, password)
             if (response !== 200) {
                 setFailed(true)
+                navigate('/error');
             } else {
                 return navigate('/home')
             }
         } catch (e) {
             setFailed(true)
+            navigate('/error');
         }
     }
 

@@ -32,7 +32,7 @@ const Landing = () => {
             {(loadingSelectedUser) && <Loading/>}
             <Header/>
             <Menu/>
-            <Navigation/>
+            <Navigation from='landing'/>
         </>
     );
 };

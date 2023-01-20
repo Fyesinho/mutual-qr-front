@@ -8,6 +8,8 @@ import QrScanner from "./pages/QRScanner/QRScanner";
 import UserState from "./context/user/User.state";
 import MyPanels from "./pages/MyPanels/MyPanels";
 import Login from "./pages/Login/Login";
+import Error from "./pages/Error";
+import NotFound from "./pages/NotFound";
 
 function App() {
     return (
@@ -41,6 +43,16 @@ function App() {
                 <Route path={'/my-panels'} element={
                     <UserState>
                         <MyPanels/>
+                    </UserState>
+                }/>
+                <Route path={'/error'} element={
+                    <UserState>
+                        <Error/>
+                    </UserState>
+                }/>
+                <Route path={'/error-not-found'} element={
+                    <UserState>
+                        <NotFound/>
                     </UserState>
                 }/>
             </Routes>

@@ -19,38 +19,41 @@ const Menu = () => {
         loadingSelectedUser ?
             null :
             <Container>
-                <div className='menu'>
-                    <h2>
-                        <FontAwesomeIcon icon={faFileSignature}/>
-                        <span style={{marginLeft: 10}}>Información personal de {name}</span>
-                    </h2>
-                    <div className='tasks'>
-                        <div className='task'>
-                            <Link to='/personal-data'>
-                                <div className='count'>
-                                    <span><FontAwesomeIcon icon={faAddressBook}/></span>
-                                </div>
-                                <div className='title-menu'>Datos personales</div>
-                            </Link>
-                        </div>
-                        <div className='task'>
-                            <Link to='/my-courses'>
-                                <div className='count'>
-                                    <span><FontAwesomeIcon icon={faGraduationCap}/></span>
-                                    <span>{selectedUser.length}</span>
-                                </div>
-                                <div className='title-menu'>Cursos</div>
-                            </Link>
-                        </div>
-                        <div className='task'>
-                            <div className='count'>
-                                <span><FontAwesomeIcon icon={faMedal}/></span>
-                                <span>-</span>
+                {selectedUser.length === 0 ?
+                    <div>El colaborador escaneado no tiene datos</div> :
+                    <div className='menu'>
+                        <h2>
+                            <FontAwesomeIcon icon={faFileSignature}/>
+                            <span style={{marginLeft: 10}}>Información personal de {name}</span>
+                        </h2>
+                        <div className='tasks'>
+                            <div className='task'>
+                                <Link to='/personal-data'>
+                                    <div className='count'>
+                                        <span><FontAwesomeIcon icon={faAddressBook}/></span>
+                                    </div>
+                                    <div className='title-menu'>Datos personales</div>
+                                </Link>
                             </div>
-                            <div className='title-menu'>Experiencia</div>
+                            <div className='task'>
+                                <Link to='/my-courses'>
+                                    <div className='count'>
+                                        <span><FontAwesomeIcon icon={faGraduationCap}/></span>
+                                        <span>{selectedUser.length}</span>
+                                    </div>
+                                    <div className='title-menu'>Cursos</div>
+                                </Link>
+                            </div>
+                            <div className='task'>
+                                <div className='count'>
+                                    <span><FontAwesomeIcon icon={faMedal}/></span>
+                                    <span>-</span>
+                                </div>
+                                <div className='title-menu'>Experiencia</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
                 <div className='menu'>
                     <h2>
                         <FontAwesomeIcon icon={faFileSignature}/>

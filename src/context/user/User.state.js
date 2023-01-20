@@ -4,8 +4,10 @@ import UserReducer from './User.reducer';
 import UserContext from "./User.context";
 import {BASE_URL} from "../../const/const";
 import {GET_USER_LOGIN, GET_USER_QR, GET_USER_QR_INIT, PUT_USER_ID} from "./User.types";
+import {useNavigate} from "react-router-dom";
 
 const UserState = (props) => {
+    const navigate = useNavigate();
     const initialState = {
         loginUser: [],
         selectedUser: [],
@@ -17,8 +19,6 @@ const UserState = (props) => {
     const [state, dispatch] = useReducer(UserReducer, initialState)
 
     const getUserByLogin = async (id, password) => {
-        console.log(id);
-        console.log(password);
         const requestOptions = {
             id, password,
         };
@@ -33,6 +33,7 @@ const UserState = (props) => {
             });
             return response.status;
         } catch (e) {
+            navigate('/error');
             console.log(e)
         }
     };
@@ -54,6 +55,7 @@ const UserState = (props) => {
                 payload: result
             });
         } catch (e) {
+            navigate('/error');
             console.log(e)
         }
     };

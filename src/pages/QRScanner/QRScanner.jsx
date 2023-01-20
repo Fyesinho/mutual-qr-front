@@ -23,6 +23,7 @@ const QrScanner = () => {
             navigate('/home');
             return updateUserId(decodedText);
         } else {
+            navigate('/error-not-found');
             setSuccess(false);
             setFailure(true);
         }
