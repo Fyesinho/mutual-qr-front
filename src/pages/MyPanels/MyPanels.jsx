@@ -8,7 +8,7 @@ const MyPanels = () => {
         <div>
             <Header/>
             <iframe id='bi' title='bi' style={{height: '500px'}}
-                src='https://app.powerbi.com/view?r=eyJrIjoiNzQyNmI3MzQtMTA3Mi00YjA3LWIzZmEtZWU1Y2U0OTZkOGY1IiwidCI6IjU3OTUyNTYyLWJhZTItNGI3OS04YWQ0LWUzNzVhM2RjZWQ5NyIsImMiOjR9'>
+                src='https://app.powerbi.com/view?r=eyJrIjoiYThlMWUzNjAtYTM3Ni00ZWQxLTg0MmMtYmRmZjY3MjU2NmRmIiwidCI6IjU3OTUyNTYyLWJhZTItNGI3OS04YWQ0LWUzNzVhM2RjZWQ5NyIsImMiOjR9'>
             </iframe>
             <Navigation/>
         </div>
